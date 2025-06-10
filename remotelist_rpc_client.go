@@ -40,4 +40,8 @@ func main() {
 			fmt.Println("Removido:", valorRemovido)
 		}
 	}
+
+	client.Call("RemoteList.Size", remotelist.SizeArgs{ListID: listID}, &tamanho)
+	fmt.Println("Tamanho atual:", tamanho)
+
 }

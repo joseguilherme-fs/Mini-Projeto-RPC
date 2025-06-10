@@ -20,14 +20,11 @@ func main() {
 	listaX := "lista-X"
 	listaY := "lista-Y"
 
-
 	for i := 0; i < 5; i++ {
-		// 1. Adiciona na lista X
 		valAdicionar := 100 + i
 		var ok bool
 		client.Call("RemoteList.Append", remotelist.AppendArgs{ListID: listaX, Value: valAdicionar}, &ok)
 		fmt.Printf("Cliente A: Adicionado '%d' na '%s'\n", valAdicionar, listaX)
-
 
 		var valRemovido int
 		err := client.Call("RemoteList.Remove", remotelist.RemoveArgs{ListID: listaY}, &valRemovido)
@@ -36,8 +33,8 @@ func main() {
 		} else {
 			fmt.Printf("Cliente A: Tentou remover da '%s', mas estava vazia.\n", listaY)
 		}
-		
-		time.Sleep(80 * time.Millisecond) 
+
+		time.Sleep(80 * time.Millisecond)
 	}
 	fmt.Println("--- Cliente A TERMINOU ---")
 }
