@@ -1,8 +1,13 @@
 FROM golang:1.21 AS builder
 WORKDIR /app
-COPY ./server/main.go .
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY ./server/main.go ./server/main.go
 COPY ./pkg ./pkg
-RUN go build -o server main.go
+
+RUN go build -o server ./server/main.go
 
 FROM alpine
 WORKDIR /app
