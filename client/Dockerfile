@@ -1,7 +1,6 @@
-FROM golang:1.21 AS builder
 WORKDIR /app
-COPY ../pkg ./pkg
 COPY ./main.go .
+COPY ../pkg ./pkg
 RUN go build -o client main.go
 
 FROM alpine
