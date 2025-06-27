@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"ifpb/remotelist/pkg"
+	"remotelist/pkg"
 	"net/rpc"
 )
 
